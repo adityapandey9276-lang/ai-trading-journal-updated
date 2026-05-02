@@ -8,15 +8,6 @@ def show(user):
     trades = get_trades(user["id"])
     alerts = get_alerts(user["id"])
 
-    # ── Page header ─────────────────────────────────────────
-    name = user.get("full_name") or user["email"].split("@")[0]
-    st.markdown(f"""
-    <div class='page-header'>
-        📊 Dashboard
-        <span> — Welcome back, {name}</span>
-    </div>
-    """, unsafe_allow_html=True)
-
     # ── Alerts ──────────────────────────────────────────────
     if alerts:
         with st.expander(f"🔔 {len(alerts)} Smart Alert(s) — Click to view & dismiss", expanded=True):
